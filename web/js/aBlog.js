@@ -64,7 +64,7 @@ function aBlogEnableNewForm()
   newForm.submit(function() {
     var form = $(this);
     $.post(form.attr('action'), $(this).serialize(), function(data) {
-      $(document).append(data); 
+      $(document.body).append(data);
     });
     return false;
   });

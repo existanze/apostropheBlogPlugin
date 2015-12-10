@@ -12,15 +12,7 @@
 <?php slot('body_class') ?>a-admin a-blog-admin <?php echo $sf_params->get('module'); ?> <?php echo $sf_params->get('action') ?> <?php echo $a_blog_post['template'] ?><?php end_slot() ?>
 
 <?php slot('a-subnav') ?>
-  <div class="a-ui a-subnav-wrapper a-admin-sidebar">
-		<div class="a-subnav-inner">
-	    <div class="a-admin-blog-post-form">
-	      <form method="post" action="<?php echo url_for('a_blog_admin_update', $a_blog_post) ?>" id="a-admin-form" class="a-ui blog">
-          <?php include_partial('aBlogAdmin/form', array('form' => $form, 'a_blog_post' => $a_blog_post, 'popularTags' => $popularTags, 'existingTags' => $existingTags)) ?>
-        </form>
-	    </div>
-		</div>
-  </div>
+
 <?php end_slot() ?>
 
 <?php slot('a-page-header') ?>
@@ -34,7 +26,15 @@
 <?php end_slot() ?>
 
 <div class="a-ui a-admin-container <?php echo $sf_params->get('module') ?>">
-
+	<div class="a-ui a-subnav-wrapper a-admin-sidebar">
+		<div class="a-subnav-inner">
+			<div class="a-admin-blog-post-form">
+				<form method="post" action="<?php echo url_for('a_blog_admin_update', $a_blog_post) ?>" id="a-admin-form" class="a-ui blog">
+					<?php include_partial('aBlogAdmin/form', array('form' => $form, 'a_blog_post' => $a_blog_post, 'popularTags' => $popularTags, 'existingTags' => $existingTags)) ?>
+				</form>
+			</div>
+		</div>
+	</div>
   <?php include_partial('flashes') ?>
 
 	<div class="a-admin-content main">
